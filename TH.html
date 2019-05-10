@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+    p {
+        font-size: x-large;
+    }
+</style>
+<body>
+<div class="nd">
+
+    <p>Nhập vào mảng của bạn tại đây</p>
+    (Lưu ý : các phần tử được ngăn cách bởi dấu ",")<br>
+    <textarea placeholder="input an Array" id="inp" cols="30" rows="3"></textarea>
+    <br><br><br>
+    <input type="button" value="Search" onclick="check();"/>
+    <br><br>
+    <textarea placeholder="min value's here" id="outp" cols="30" rows="3" readonly></textarea>
+
+</div>
+
+            <script>
+                function minArray(arr) {
+                    let min = arr[0];
+
+                    for (let i=0;i<arr.length;i++) {
+                        if (arr[i] < min) {
+                            min = arr[i];
+                        }
+                    } return min;
+                }
+                function check() {
+
+                    let inputArray = (document.getElementById("inp").value).split(",");
+                    // console.log(inputArray);
+                    for (let i in inputArray) {
+                        inputArray[i] = Number(inputArray[i]);
+                    }
+                    let minValue = minArray(inputArray);
+                    document.getElementById("outp").innerHTML = minValue;
+                }
+
+            </script>
+</body>
+</html>
